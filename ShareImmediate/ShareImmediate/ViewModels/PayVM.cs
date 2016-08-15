@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ShareImmediate.ViewModels
 {
@@ -12,8 +13,10 @@ namespace ShareImmediate.ViewModels
         [Required]
         [Display(Name = "Amount")]
         public int PayAmount { get; set; }
+        public string[] SelectedUser { get; set; }
 
-        public string User { get; set; }
+
+        //public string User { get; set; }
 
         public IEnumerable<Users> AvailableUsers { get; set; }
 
