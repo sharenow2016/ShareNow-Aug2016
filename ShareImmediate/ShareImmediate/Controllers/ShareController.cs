@@ -1,4 +1,5 @@
 ﻿using ShareImmediate.DataEntities;
+using ShareImmediate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,26 @@ namespace ShareImmediate.Controllers
             CommonEntities db = new CommonEntities();
             var ViewModel = new ViewModels.ShareVM();
 
-            ViewBag.UserName = new SelectList(db.Users, "id", "name");
+            ViewModel.AvailableUsers = (from r in db.Users.AsEnumerable() select r).ToList();
             return View(ViewModel);
+        }
+        [HttpPost]
+        public ActionResult Index(ShareVM model)
+        {
+            CommonEntities db = new CommonEntities();
+            var ViewModel = new ViewModels.ShareVM();
+            var NewShare = new DataEntities.ShareDetails();
+            foreach (var row in model.SelectedUsers)
+            {
+                NewShare.USerID = Int32.Parse(row);
+                NewShare.Amount = model.ShareAmount;
+                NewShare.Category = model.Category;
+                db.ShareDetails.Add(NewShare);
+                db.SaveChanges();
+            }
+            ViewModel.AvailableUsers = (from r in db.Users.AsEnumerable() select r).ToList();
+            ViewModel.Message = "Data Inserted successfully...............";
+            return View("Index", ViewModel);
         }
     }
 }

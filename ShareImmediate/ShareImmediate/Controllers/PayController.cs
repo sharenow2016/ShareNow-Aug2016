@@ -17,8 +17,6 @@ namespace ShareImmediate.Controllers
             CommonEntities db = new CommonEntities();
             var ViewModel = new ViewModels.PayVM();
             ViewModel.AvailableUsers = (from r in db.Users.AsEnumerable() select r).ToList();
-            
-            //ViewBag.UserName = new SelectList(db.Users, "id", "name");
             return View(ViewModel);
         }
         [HttpPost]
@@ -35,8 +33,8 @@ namespace ShareImmediate.Controllers
                 db.SaveChanges();
             }
             ViewModel.AvailableUsers = (from r in db.Users.AsEnumerable() select r).ToList();
-
-            return View("Index", ViewModel);
+            ViewModel.Message = "Data Inserted successfully...............";
+            return View("Index",ViewModel);
         }
 
     }

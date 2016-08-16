@@ -5,84 +5,47 @@
 }
 <h3>@ViewBag.Title</h3>
 
-@*@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.User)
-
-        <div class="form-group">
-            <label for="userdropdown" class="control-label col-md-2">Username/Login ID</label>
-            <div class="col-md-2"><input id="userdropdown" placeholder="Type first 3 characters" class="form-control" /></div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-3">
-                <input type="button" value="Get Privileges" onclick="js:GetPrivileges();" class="btn btn-success" />
-                <input type="button" value="Reset" class="btn btn-warning" onclick="js:Reset();" />
-                <input type="button" id="btnSave" value="Save Changes" onclick="js:SaveChanges();" class="btn btn-primary" />
-            </div>
-        </div>
-
-    </div>
-}*@
-
-
-@*<<div class="form-group">
-    @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-2" })
-
-    <div class="col-md-3">
-        @Html.DropDownList("UserName", null, htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.AvailableUsers, "", new { @class = "text-danger" })
-    </div>
-</div>
-<div class="form-group">
-    @Html.LabelFor(m => m.PayAmount, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-        @Html.TextBoxFor(m => m.PayAmount, new { @class = "form-control" })
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10 btn btn-primary">
-        <input type="submit" value="PayNow" class="btn btn-default" onclick="location.href='@Url.Action("IndexPost", "Pay", new { name = "muthu",amount = 100})'" />
-    </div>
-
-</div>*@
 <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-multiselect.css" />
 
 @using (Html.BeginForm())
 {
-    <fieldset>
-        <dl>
-            <dt>
-                @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-1" })
-               @* @Html.LabelFor(x => x.SelectedUser)*@
-            </dt>
-            <dd>
-                @*@Html.DropDownListFor(v => v.SelectedUser, new MultiSelectList(ViewBag.UserName, "id", "name", ViewBag.USerName))*@
-
-                
+                <div>
+                    @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-1" })
+                </div>
                 <div class="col-md-2">
                    @Html.DropDownListFor(x => x.SelectedUser, new MultiSelectList(Model.AvailableUsers, "id", "name", Model.SelectedUser), new { @class = "multiselect", multiple = "multiple" })
                 </div>
-
-                @*@Html.DropDownList("UserName", (SelectList)ViewBag.UserName, "--Select user--")*@
-                @*@Html.DropDownListFor(x => x.SelectedUser,Model.AvailableUsers)*@
-            </dd>
-            <dt>@Html.LabelFor(m => m.PayAmount, new { @class = "col-md-2 control-label" })</dt>
-            <dd>
-                @Html.TextBoxFor(m => m.PayAmount, new { @class = "form-control" })
-            </dd>
-        </dl>
-    </fieldset>
+                <div>
+                    @Html.LabelFor(m => m.PayAmount, new { @class = "col-md-2 control-label" })
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.PayAmount, new { @class = "form-control" })
+                </div>
 
     <input type="submit" value="PayNow" />
 }
 
-<h5>@ViewBag.Message</h5>
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#SelectedUser").multiselect(
+        {
+            includeSelectAllOption: true,
+            disableIfEmpty: true,
+            maxHeight: 300,
+            nonSelectedText: 'All Selected',
+            selectAllText: 'Select All!',
+            selectAllValue: 0,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            checkboxName: 'SelectedUser[]'
+        });
+    });
+
+</script>
 
 

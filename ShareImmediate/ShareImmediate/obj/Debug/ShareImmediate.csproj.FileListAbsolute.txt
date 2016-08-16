@@ -133,6 +133,5 @@ F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\bin\Microsoft.Ow
 F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\bin\Microsoft.Owin.Security.Google.xml
 F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\bin\Microsoft.Owin.Security.Twitter.xml
 F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\obj\Debug\ShareImmediate.csprojResolveAssemblyReference.cache
 F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\obj\Debug\ShareImmediate.dll
 F:\ShareNow-2016\ShareNow-Aug2016\ShareImmediate\ShareImmediate\obj\Debug\ShareImmediate.pdb

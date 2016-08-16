@@ -13,5 +13,7 @@ namespace ShareImmediate.DataEntities
         { }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
+        public virtual DbSet<Group> Group { get; set; } 
+        public virtual DbSet<ShareDetails> ShareDetails { get; set; }
     }
 }

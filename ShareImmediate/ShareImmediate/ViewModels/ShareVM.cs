@@ -8,8 +8,9 @@ namespace ShareImmediate.ViewModels
 {
     public class ShareVM
     {
-        public int Amount { get; set; }
+        public int ShareAmount { get; set; }
         public string Category { get; set; }
+        public string[] SelectedUsers { get; set; }
         public IEnumerable<Users> AvailableUsers { get; set; }
         public string Message { get; set; }
     }

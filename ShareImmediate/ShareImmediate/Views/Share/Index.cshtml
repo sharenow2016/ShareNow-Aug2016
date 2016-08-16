@@ -1,37 +1,56 @@
 ﻿@model ShareImmediate.ViewModels.ShareVM
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Payment";
+    ViewBag.Message = Model.Message;
+}
+<h3>@ViewBag.Title</h3>
+
+
+<script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap-multiselect.css" />
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-1" })
+    </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(x => x.SelectedUsers, new MultiSelectList(Model.AvailableUsers, "id", "name", Model.SelectedUsers), new { @class = "multiselect", multiple = "multiple" })
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.Category, new { @class = "col-md-2 control-label" })
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.ShareAmount, new { @class = "col-md-2 control-label" })
+                </div>
+                <div>
+                    @Html.TextBoxFor(m => m.ShareAmount, new { @class = "form-control" })
+                </div>
+
+                <input type="submit" value="ShareNow" />
 }
 
-<h2>Index</h2>
-
-@Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-2" })
-
-<div class="col-md-3">
-    @Html.DropDownList("UserName", null, htmlAttributes: new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.AvailableUsers, "", new { @class = "text-danger" })
-</div>
-</div>
-
-<div class="form-group">
-    @Html.LabelFor(m => m.Category, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
-    </div>
-</div>
-
-<div class="form-group">
-    @Html.LabelFor(m => m.Amount, new { @class = "col-md-2 control-label" })
-    <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="btn btn-primary">
-        <input type="submit" value="ShareNow" class="btn btn-default" onclick="location.href='@Url.Action("IndexPost", "Pay")'" />
-    </div>
-
-</div>
 
 
+<script>
+
+    $(document).ready(function () {
+        $("#SelectedUsers").multiselect(
+        {
+            includeSelectAllOption: true,
+            disableIfEmpty: true,
+            maxHeight: 300,
+            nonSelectedText: 'All Selected',
+            selectAllText: 'Select All!',
+            selectAllValue: 0,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            checkboxName: 'SelectedUsers[]'
+        });
+    });
+
+</script>

@@ -14,12 +14,9 @@ namespace ShareImmediate.ViewModels
         [Display(Name = "Amount")]
         public int PayAmount { get; set; }
         public string[] SelectedUser { get; set; }
-
-
-        //public string User { get; set; }
-
+        [Required]
+        [Display(Name = "Group Members")]
         public IEnumerable<Users> AvailableUsers { get; set; }
-
         public string Message { get; set; }
     }
 }

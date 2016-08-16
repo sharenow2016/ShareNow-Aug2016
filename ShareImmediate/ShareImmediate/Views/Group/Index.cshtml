@@ -3,34 +3,47 @@
     ViewBag.Title = "Group";
     ViewBag.Message = Model.Message;
 }
+<h3>@ViewBag.Title</h3>
 
-<h2>@ViewBag.Title</h2>
 
-<<div class="form-group">
+<script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap-multiselect.css" />
 
-     <div class="form-group">
-         @Html.LabelFor(m => m.GroupName, new { @class = "col-md-2 control-label" })
-         <div class="col-md-10">
-             @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control" })
-         </div>
-     </div>
-
-    @Html.LabelFor(model => model.GroupMembers, htmlAttributes: new { @class = "control-label col-md-2" })
-
-    <div class="col-md-3">
-        @Html.DropDownList("GroupMembersList", null, htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.GroupMembers, "", new { @class = "text-danger" })
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.GroupName, new { @class = "col-md-2 control-label" })
     </div>
-</div>
-
-
-<div class="form-group">
-    <div class="btn btn-primary">
-        <input type="submit" value="PayNow" class="btn btn-default" onclick="location.href='@Url.Action("IndexPost", "Pay")'" />
+                <div>
+                    @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control" })
+                </div>
+    <div>
+        @Html.LabelFor(model => model.GroupMembers, htmlAttributes: new { @class = "control-label col-md-1" })
     </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(x => x.SelectedMembers, new MultiSelectList(Model.GroupMembers, "id", "name", Model.SelectedMembers), new { @class = "multiselect", multiple = "multiple" })
+                </div>
+                <input type="submit" value="CreateGroup" />
+}
 
-</div>
 
-<h5>@ViewBag.Message</h5>
+<script>
+
+    $(document).ready(function () {
+        $("#SelectedMembers").multiselect(
+        {
+            includeSelectAllOption: true,
+            disableIfEmpty: true,
+            maxHeight: 300,
+            nonSelectedText: 'All Selected',
+            selectAllText: 'Select All!',
+            selectAllValue: 0,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            checkboxName: 'SelectedMembers[]'
+        });
+    });
+
+</script>
 
 

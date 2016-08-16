@@ -177,7 +177,9 @@
     <Compile Include="Controllers\ShareController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="DataEntities\CommonEntities.cs" />
+    <Compile Include="DataEntities\Group.cs" />
     <Compile Include="DataEntities\Payment.cs" />
+    <Compile Include="DataEntities\ShareDetails.cs" />
     <Compile Include="DataEntities\Users.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
