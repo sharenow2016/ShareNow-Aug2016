@@ -11,5 +11,7 @@ namespace ShareImmediate.DataEntities
         public string Category { get; set; }
         public int USerID { get; set; }
         public int Amount { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

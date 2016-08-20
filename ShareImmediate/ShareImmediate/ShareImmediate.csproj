@@ -180,6 +180,7 @@
     <Compile Include="DataEntities\Group.cs" />
     <Compile Include="DataEntities\Payment.cs" />
     <Compile Include="DataEntities\ShareDetails.cs" />
+    <Compile Include="DataEntities\UserDetails.cs" />
     <Compile Include="DataEntities\Users.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -191,6 +192,7 @@
     <Compile Include="SIEntities.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GroupVM.cs" />
+    <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\PayVM.cs" />
     <Compile Include="ViewModels\ShareVM.cs" />
   </ItemGroup>
@@ -239,10 +241,10 @@
     <Content Include="Views\Pay\Index.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Share\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Report\" />
     <Folder Include="Views\Signup\" />
   </ItemGroup>

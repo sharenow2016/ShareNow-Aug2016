@@ -11,6 +11,7 @@ namespace ShareImmediate.Controllers
     public class GroupController : Controller
     {
         // GET: Group
+        
         public ActionResult Index()
         {
             CommonEntities db = new CommonEntities();
