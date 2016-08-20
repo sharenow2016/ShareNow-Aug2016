@@ -8,9 +8,10 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/Site.css") 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body style="background-color: transparent;">
+    <div>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,10 +23,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Pay", "Index", "Pay")</li>
-                    <li>@Html.ActionLink("Group", "Index", "Group")</li>
-                    <li>@Html.ActionLink("Share", "Index", "Share")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "menubar" })</li>
+                    <li>@Html.ActionLink("Pay", "Index", "Pay", new { area = "" }, new { @class = "menubar" })</li>
+                    <li>@Html.ActionLink("Group", "Index", "Group", new { area = "" }, new { @class = "menubar" })</li>
+                    <li>@Html.ActionLink("Share", "Index", "Share", new { area = "" }, new { @class = "menubar" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: transparent;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +23,23 @@ select,
 textarea {
     max-width: 280px;
 }
+html {
+	background: url('../images/Backgroundcity.jpg');
+	font-size: 10pt;
+	background-repeat: no-repeat;
+	background-size: 1366px 720px;
+}
+menubar{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 60px;	
+}
+snbutton{
+	background-color: rgba(255, 162, 0, 0.98);
+	color: red;
+	height:30px;
+	width: 115px;
+	border-radius: 20px;
+}
+    .testRed{
+        background-color:red;
+    }
