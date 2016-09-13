@@ -1,33 +1,47 @@
 ﻿@model ShareImmediate.ViewModels.PayVM
 @{
-    ViewBag.Title = "Payment";
     ViewBag.Message = Model.Message;
 }
-<h3>@ViewBag.Title</h3>
+
 
 <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-multiselect.css" />
 
 @using (Html.BeginForm())
 {
-
-                <div>
-                    @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-1" })
+    <div class = "container" >
+        <div class = "row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="margin: 30px;background-color: #ffffff;border: 1px solid black;opacity: 0.6;padding:10px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-6" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(x => x.SelectedUser, new MultiSelectList(Model.AvailableUsers, "id", "name", Model.SelectedUser), new { @class = "multiselect", multiple = "multiple" })
+                    </div>
                 </div>
-                <div class="col-md-2">
-                   @Html.DropDownListFor(x => x.SelectedUser, new MultiSelectList(Model.AvailableUsers, "id", "name", Model.SelectedUser), new { @class = "multiselect", multiple = "multiple" })
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.PayAmount, new { @class = "col-md-6 control-label" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.PayAmount, new { @class = "form-control col-md-6" })
+                    </div>
                 </div>
-                <div>
-                    @Html.LabelFor(m => m.PayAmount, new { @class = "col-md-2 control-label" })
+                <div class="row" style="margin:10px">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <input type="submit" value="Pay Now" />
+                    </div>
                 </div>
-                <div>
-                    @Html.TextBoxFor(m => m.PayAmount, new { @class = "form-control" })
-                </div>
-
-    <input type="submit" value="PayNow" />
+             </div>
+             <div class="col-md-4"></div>
+         </div>
+    </div>
 }
 
-<h3>@ViewBag.Message</h3>
+
 
 <script>
 
@@ -36,26 +50,13 @@
         {
             includeSelectAllOption: true,
             disableIfEmpty: true,
-            maxHeight: 100,
+            maxHeight: 300,
             nonSelectedText: 'All Selected',
             selectAllText: 'Select All!',
             selectAllValue: 0,
             enableFiltering: true,
             enableCaseInsensitiveFiltering: true,
             checkboxName: 'SelectedUser[]'
-        });
-    });
-
-    $(document).ready(function () {
-        $("#divProcessing").hide();
-        $("#UserName").focus();
-        $("#frmLogin").keypress(function (e) {
-            var kCode = e.keyCode || e.charCode;
-            if (kCode == 13) {
-                e.preventDefault(); //stops default action: submitting form
-                $(this).blur();
-                $("#btnLogin").focus().click();
-            }
         });
     });
 

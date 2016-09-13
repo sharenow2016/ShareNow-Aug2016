@@ -3,27 +3,43 @@
     ViewBag.Title = "Group";
     ViewBag.Message = Model.Message;
 }
-<h3>@ViewBag.Title</h3>
-
 
 <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-multiselect.css" />
 
 @using (Html.BeginForm())
 {
-    <div>
-        @Html.LabelFor(m => m.GroupName, new { @class = "col-md-2 control-label" })
-    </div>
-                <div>
-                    @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control" })
+    <div class = "container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="margin: 30px;background-color: #ffffff;border: 1px solid black;opacity: 0.6;padding:10px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.GroupName, new { @class = "col-md-6 control-label" })
+                        </div>
+                        <div class="col-md-6 ">
+                            @Html.TextBoxFor(m => m.GroupName, new { @class = "form-control col-md-6 " })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.GroupMembers, htmlAttributes: new { @class = "control-label col-md-6" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(x => x.SelectedMembers, new MultiSelectList(Model.GroupMembers, "id", "name", Model.SelectedMembers), new { @class = "multiselect", multiple = "multiple" })
+                        </div>
+                     </div>
+                <div class="row" style="margin:10px">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <input type="submit" value="CreateGroup" />
+                    </div>
                 </div>
-    <div>
-        @Html.LabelFor(model => model.GroupMembers, htmlAttributes: new { @class = "control-label col-md-1" })
-    </div>
-                <div class="col-md-2">
-                    @Html.DropDownListFor(x => x.SelectedMembers, new MultiSelectList(Model.GroupMembers, "id", "name", Model.SelectedMembers), new { @class = "multiselect", multiple = "multiple" })
+                    
                 </div>
-                <input type="submit" value="CreateGroup" />
+            <div class="col-md-4"></div>
+        </div>
+     </div>
 }
 
 
