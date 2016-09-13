@@ -29,9 +29,23 @@ html {
 	background-repeat: no-repeat;
 	background-size: 1366px 720px;
 }
-menubar{
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 60px;	
+#logo {
+	background: url('../images/logo1.png');
+	background-repeat: no-repeat;
+	background-size: 170px 165px;
+    height:170px;
+}
+a.menubar{
+    color:white;	
+}
+/*a.menubar:active{
+    color:orange !important;	
+}
+a.menubar:hover{
+    color:orange !important;	
+}*/
+li #active {
+    color:orange !important;	
 }
 snbutton{
 	background-color: rgba(255, 162, 0, 0.98);
