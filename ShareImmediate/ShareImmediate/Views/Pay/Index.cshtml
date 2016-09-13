@@ -5,12 +5,12 @@
 }
 <h3>@ViewBag.Title</h3>
 
-
 <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
 <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-multiselect.css" />
 
 @using (Html.BeginForm())
 {
+
                 <div>
                     @Html.LabelFor(model => model.AvailableUsers, htmlAttributes: new { @class = "control-label col-md-1" })
                 </div>
@@ -27,7 +27,7 @@
     <input type="submit" value="PayNow" />
 }
 
-
+<h3>@ViewBag.Message</h3>
 
 <script>
 
@@ -36,13 +36,26 @@
         {
             includeSelectAllOption: true,
             disableIfEmpty: true,
-            maxHeight: 300,
+            maxHeight: 100,
             nonSelectedText: 'All Selected',
             selectAllText: 'Select All!',
             selectAllValue: 0,
             enableFiltering: true,
             enableCaseInsensitiveFiltering: true,
             checkboxName: 'SelectedUser[]'
+        });
+    });
+
+    $(document).ready(function () {
+        $("#divProcessing").hide();
+        $("#UserName").focus();
+        $("#frmLogin").keypress(function (e) {
+            var kCode = e.keyCode || e.charCode;
+            if (kCode == 13) {
+                e.preventDefault(); //stops default action: submitting form
+                $(this).blur();
+                $("#btnLogin").focus().click();
+            }
         });
     });
 
