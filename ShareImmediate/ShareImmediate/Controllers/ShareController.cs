@@ -11,6 +11,7 @@ namespace ShareImmediate.Controllers
     public class ShareController : Controller
     {
         // GET: Share
+        
         public ActionResult Index()
         {
             CommonEntities db = new CommonEntities();
