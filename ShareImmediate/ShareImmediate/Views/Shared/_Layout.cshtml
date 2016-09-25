@@ -19,10 +19,10 @@
                     <div class="row" style="height:120px;font-size:40px;font-family:serif;font-weight: bold;">ShareNow</div>
                     <div class="row">
                         <ul class="nav navbar-nav">
-                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "menubar" })</li>                
-                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Pay" ? "active" : "")">@Html.ActionLink("Pay", "Index", "Pay", new { area = "" }, new { @class = "menubar" })</li>
-                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Group" ? "active" : "")">@Html.ActionLink("Group", "Index", "Group", new { area = "" }, new { @class = "menubar" })</li>
-                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Share" ? "active" : "")">@Html.ActionLink("Share", "Index", "Share", new { area = "" }, new { @class = "menubar" })</li>
+                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "activemenu" : "")">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "menubar" })</li>                
+                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Pay" ? "activemenu" : "")">@Html.ActionLink("Pay", "Index", "Pay", new { area = "" }, new { @class = "menubar" })</li>
+                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Group" ? "activemenu" : "")">@Html.ActionLink("Group", "Index", "Group", new { area = "" }, new { @class = "menubar" })</li>
+                            <li id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Share" ? "activemenu" : "")">@Html.ActionLink("Share", "Index", "Share", new { area = "" }, new { @class = "menubar" })</li>
                         </ul>
                     </div>
                 </div>

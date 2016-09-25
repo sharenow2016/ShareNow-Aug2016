@@ -1,0 +1,19 @@
+create table users(id int not null primary key identity(1,1),name varchar(50))
+
+insert into Users(name) values ('Rekha');
+
+
+create table UserDetails(id int not null primary key identity(1,1),
+							FirstName varchar(50),
+							LastName varchar(50),
+							MailId varchar(50),
+							MobileNo varchar(50),
+							UserName varchar(50),
+							Password varchar(50),
+							UserCategory varchar(50),
+							CreatedDate datetime)
+
+
+insert into UserDetails(FirstName,LastName,MailId,MobileNo,UserName,Password,UserCategory) values('Rekha','Rengappa','Rekha@gmail.com','rekha','rekha','Both')
+
+
