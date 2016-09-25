@@ -1,0 +1,42 @@
+use sharenowDB;
+create table users(id int not null primary key identity(1,1),name varchar(50))
+
+insert into Users(name) values ('Rekha');
+
+
+create table UserDetails(id int not null primary key identity(1,1),
+							FirstName varchar(50),
+							LastName varchar(50),
+							MailId varchar(50),
+							MobileNo varchar(50),
+							UserName varchar(50),
+							Password varchar(50),
+							UserCategory varchar(50),
+							CreatedDate datetime)
+
+
+insert into UserDetails(FirstName,LastName,MailId,MobileNo,UserName,Password,UserCategory) values('Rekha','Rangappa','Rekha@gmail.com','1234567890','rekha','rekha','Both')
+
+create table groups(id int not null primary key identity(1,1),
+GroupName varchar(50),
+Userid int,
+CreatedDate datetime)
+
+insert into  groups(GroupName,Userid,CreatedDate)values('groupOne',1,GETDATE())
+
+create table Payments(id int not null primary key identity(1,1),
+      Amount int,
+      userid int,
+      PaymentDate datetime)
+
+insert into Payments(Amount,userid,PaymentDate) values(5000,1,GETDATE())
+
+create table ShareDetails(
+id int not null primary key identity(1,1),
+Category varchar(50),
+Amount int,
+Userid int)
+
+insert into ShareDetails(Category,Amount,Userid) values ('Dinner',5000,1)
+
+
